@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import userTable from "./components/userTable";
+import UserTable from "./components/userTable";
 
 function App() {
 
@@ -8,10 +8,9 @@ function App() {
       <div className="heading">
         <h1>Employee Directory</h1> 
         <div className="content">
-          <userTable />
+          <UserTable />
         </div>
-      </div>
-      
+      </div>  
       
      
     
