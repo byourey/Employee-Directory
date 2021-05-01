@@ -1,6 +1,6 @@
 # Employee-Directory
 
-<a href="https://">View My Deployed Application</a>
+<a href="https://byourey.github.io/Employee-Directory/">View My Deployed Application</a>
 
 # Description
 Creating an Employee Directory using React. Generating this data using Random User API.
