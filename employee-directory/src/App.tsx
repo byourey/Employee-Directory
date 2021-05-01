@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import SearchBox from "./components/searchBox";
 import userTable from "./components/userTable";
 
 function App() {
@@ -9,7 +8,6 @@ function App() {
       <div className="heading">
         <h1>Employee Directory</h1> 
         <div className="content">
-          <SearchBox />
           <userTable />
         </div>
       </div>
