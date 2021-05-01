@@ -10,15 +10,7 @@ const userTable = () => {
     const [employees, setEmployees] = useState([]);
     const [filter, setFilter] = useState(null);
 
-    useEffect(() => {
-     API.getUsers().then(data => {
-        const employeeList = data.results.map((employee:any) => {
-            return {
-
-            }
-        }) 
-     }
-    })
+    
 
     const nameBodyTemplate = (rowData:any) => {
         return (
@@ -54,7 +46,7 @@ const userTable = () => {
 
     const header = (
         <div className="table-header">
-           <p>US Employees</p> 
+           <p>Employees</p> 
             <div className="p-input-icon-left">
                 <i className="pi pi-search" />
                 <InputText type="search" onInput={(e) => setGlobalFilter((e.target as any).value)} placeholder="Global Search" />
@@ -64,7 +56,6 @@ const userTable = () => {
 
     return (
         <div className="card">
-            {/* The Datatable value is the initial value we set up in useState but is then updated with the changes made when we create a new array for listEmployees. In the Column, the "field" name must match the "key" name in const listEmployees */}
             <DataTable ref={dt} value={employees} header={header} footer={footer} className="p-datatable-striped p-text-center" removableSort globalFilter={globalFilter} emptyMessage="No customers found." resizableColumns columnResizeMode="fit">
                 <Column field="name" header="Name" sortable body={nameBodyTemplate} filter filterPlaceholder="Search by name" style={{width:'10%'}}></Column>
                 <Column field="street" header="Street" style={{width:'10%'}}></Column>
@@ -84,3 +75,7 @@ const userTable = () => {
 }
 
 export default userTable;
+
+function setGlobalFilter(value: any): void {
+    throw new Error("Function not implemented.");
+}
