@@ -5,12 +5,37 @@ import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import API from "../utils/API";
 
-const userTable = () => {
+const UserTable = () => {
 
     const [employees, setEmployees] = useState([]);
-    const [filter, setFilter] = useState(null);
+    const [globalFilter, setGlobalFilter] = useState(null);
+    const dt = useRef(null);
 
-    
+    useEffect(() => {
+        API.getUsers().then(data => {
+            const listEmployees = data.data.results.map((employee:any) => {
+                return {
+                    name: `${employee.name.first} ${employee.name.last}`,
+                    street: `${employee.location.street.number} ${employee.location.street.name}`,
+                    city: `${employee.location.city}`,
+                    state: `${employee.location.state}`,
+                    zipcode: `${employee.location.postcode}`,
+                    phone: `${employee.phone}`,
+                    email: `${employee.email}`,
+                    image: `${employee.picture.medium}`
+                }
+            })
+            setEmployees(listEmployees)
+
+
+        });
+    }, []);
+
+    const imageBodyTemplate = (rowData:any) => {
+        return <img src={`${rowData.image}`} alt={rowData.name} className="p-shadow-2" />;
+    }
+
+ 
 
     const nameBodyTemplate = (rowData:any) => {
         return (
@@ -74,8 +99,4 @@ const userTable = () => {
 
 }
 
-export default userTable;
-
-function setGlobalFilter(value: any): void {
-    throw new Error("Function not implemented.");
-}
+export default UserTable;
