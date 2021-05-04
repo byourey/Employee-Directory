@@ -14,3 +14,4 @@ Cone repo to the computer and type npm install which installs the dependencies.n
 * Random User API
 
 # Screenshot
+![Image of website](https://github.com/byourey/Employee-Directory/blob/main/employee-directory/Images/Employee%20Directory.jpg)
