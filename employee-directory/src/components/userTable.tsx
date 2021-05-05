@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef} from "react";
 
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { InputText } from 'primereact/inputtext';
 import API from "../utils/API";
 
 const UserTable = () => {
@@ -68,16 +67,12 @@ const UserTable = () => {
         );
     }
 
-    const header = (
-        <div className="table-header">
-           <p>Employees</p> 
-            
-        </div>
-    );
+    
+
 
     return (
         <div className="card">
-            <DataTable ref={dt} value={employees} header={header} footer={footer} className="p-datatable-striped p-text-center" removableSort globalFilter={globalFilter} emptyMessage="No customers found." resizableColumns columnResizeMode="fit">
+            <DataTable ref={dt} value={employees} className="p-datatable-striped p-text-center" removableSort emptyMessage="No customers found." resizableColumns columnResizeMode="fit">
                 <Column field="name" header="Name" sortable body={nameBodyTemplate} filter filterPlaceholder="Search by name" style={{width:'10%'}}></Column>
                 <Column field="street" header="Street" style={{width:'10%'}}></Column>
                 <Column field="city" header="City" sortable body={cityBodyTemplate} filter filterPlaceholder="Search by city" style={{width:'10%'}}></Column>
