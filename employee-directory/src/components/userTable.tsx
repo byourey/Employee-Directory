@@ -8,7 +8,6 @@ import API from "../utils/API";
 const UserTable = () => {
 
     const [employees, setEmployees] = useState([]);
-    const [globalFilter, setGlobalFilter] = useState(null);
     const dt = useRef(null);
 
     useEffect(() => {
@@ -72,10 +71,7 @@ const UserTable = () => {
     const header = (
         <div className="table-header">
            <p>Employees</p> 
-            <div className="p-input-icon-left">
-                <i className="pi pi-search" />
-                <InputText type="search" onInput={(e) => setGlobalFilter((e.target as any).value)} placeholder="Global Search" />
-            </div>
+            
         </div>
     );
 
